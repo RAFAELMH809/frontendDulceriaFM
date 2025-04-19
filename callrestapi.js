@@ -6,7 +6,7 @@ let selectedDulceId = null;
 function postDulce() {
     console.log(url);
 
-    var myNombreDulces = $('#nombredulces').val();
+    var myNombreDulces = $('#nombreDulces').val();
     var myPrecio = $('#precio').val();
     var myCantidad = $('#cantidad').val();
     var myDescripcion = $('#descripcion').val();
@@ -19,7 +19,7 @@ function postDulce() {
     
 
     var dulce = {
-        nombredulces: myNombreDulces,
+        nombreDulces: myNombreDulces,
         precio: myPrecio,
         cantidad: myCantidad,
         descripcion: myDescripcion
@@ -58,14 +58,14 @@ function getDulces() {
             htmlTableDulces += `
                 <tr>
                     <td>${index + 1}</td>
-                    <td>${item.nombredulces}</td>
+                    <td>${item.nombreDulces}</td>
                     <td>${item.precio}</td>
                     <td>${item.cantidad}</td>
                     <td>${item.descripcion}</td>
                 <td>
                 <button class="btn-eliminar" onclick="deleteDulce(${item.id})">Eliminar</button>
 
-                <button class="btn-editar" onclick="fillForm(${item.id}, '${item.nombredulces}', '${item.precio}', ${item.cantidad}, '${item.descripcion}')">Editar</button>
+                <button class="btn-editar" onclick="fillForm(${item.id}, '${item.nombreDulces}', '${item.precio}', ${item.cantidad}, '${item.descripcion}')">Editar</button>
 
             </td>
         </tr>
@@ -99,17 +99,17 @@ function updateDulce() {
         return;
     }
 
-    const nombredulces = $('#nombredulces').val();
+    const nombreDulces = $('#nombreDulces').val();
     const precio = $('#precio').val();
     const cantidad = $('#cantidad').val();
     const descripcion = $('#descripcion').val();
 
-    if (!nombredulces || !precio|| !cantidad|| !descripcion) {
+    if (!nombreDulces || !precio|| !cantidad|| !descripcion) {
         alert("Completa todos los campos para actualizar");
         return;
     }
 
-    const updatedDulce = { nombredulces, precio, cantidad, descripcion };
+    const updatedDulce = { nombreDulces, precio, cantidad, descripcion };
 
     $.ajax({
         url: `${url}/${selectedDulceId}`,
@@ -129,8 +129,8 @@ function updateDulce() {
     });
 }
 
-function fillForm(id, nombredulces, precio, cantidad, descripcion) {
-    $('#nombredulces').val(nombredulces);
+function fillForm(id, nombreDulces, precio, cantidad, descripcion) {
+    $('#nombreDulces').val(nombreDulces);
     $('#precio').val(precio);
     $('#cantidad').val(cantidad);
     $('#descripcion').val(descripcion);
@@ -143,7 +143,7 @@ function fillForm(id, nombredulces, precio, cantidad, descripcion) {
 
 // Limpiar inputs
 function clearForm() {
-    $('#nombredulces').val('');
+    $('#nombreDulces').val('');
     $('#precio').val('');
     $('#cantidad').val('');
     $('#descripcion').val('');
