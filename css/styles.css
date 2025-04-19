@@ -1,0 +1,135 @@
+/* ====== Fondo general ====== */
+body {
+  background-color: #fff9c4; /* amarillo más notorio */
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #333;
+}
+
+/* ====== Título ====== */
+h1 {
+  font-size: 2.5rem;
+  color: #0d47a1; /* Azul fuerte */
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 5px #82b1ff;
+  text-align: center;
+}
+
+/* ====== Formulario ====== */
+div {
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+}
+
+label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #90caf9;
+  outline: none;
+  background-color: #fff;
+  transition: border-color 0.3s ease;
+}
+
+input:focus {
+  border-color: #0d47a1;
+}
+
+/* ====== Botones generales (estilo base) ====== */
+button {
+  padding: 10px 20px;
+  margin: 8px 5px;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* ====== Botón Agregar ====== */
+.btn-agregar {
+  background-color: #1565c0;
+}
+.btn-agregar:hover {
+  background-color: #0d47a1;
+}
+
+/* ====== Botón Ver ====== */
+.btn-ver {
+  background-color: #1565c0;
+}
+.btn-ver:hover {
+  background-color: #0d47a1;
+}
+
+/* ====== Botón Editar ====== */
+.btn-editar {
+  background-color: #1565c0;
+}
+.btn-editar:hover {
+  background-color: #0d47a1;
+}
+
+/* ====== Botón Actualizar ====== */
+.btn-actualizar {
+  background-color: #1565c0;
+}
+.btn-actualizar:hover {
+  background-color: #0d47a1;
+}
+
+/* ====== Botón Eliminar (ahora también azul fuerte) ====== */
+.btn-eliminar {
+  background-color: #1565c0;
+}
+.btn-eliminar:hover {
+  background-color: #0d47a1;
+}
+
+/* ====== Contenedor de resultados ====== */
+#resultado {
+  margin-top: 30px;
+  width: 90%;
+  max-width: 800px;
+}
+
+/* ====== Tabla de resultados ====== */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+td, th {
+  border: 1px solid #90caf9;
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  background-color: #e3f2fd;
+  color: #0d47a1;
+}
+
+tr:hover {
+  background-color: #e8f5e9;
+}
+
+
+
+  
+  
+  
+  
