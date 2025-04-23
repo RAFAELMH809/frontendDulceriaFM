@@ -126,6 +126,21 @@ th {
 tr:hover {
   background-color: #e8f5e9;
 }
+/* Estilo para el campo de selección (color y sabor) */
+select {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ffb6c1;
+  outline: none;
+  background-color: #fff;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+  width: 100%; /* Para que ocupe todo el ancho disponible */
+}
+
+select:focus {
+  border-color: #e91e63;
+}
 
 
 

@@ -1,4 +1,4 @@
-var url ="https://pg-restapidulceriabm.onrender.com/api/dulces";
+var url = "https://pg-restapidulceriabm.onrender.com/api/dulces";
 let selectedDulceId = null;
 
 
@@ -10,9 +10,11 @@ function postDulce() {
     var myPrecio = $('#precio').val();
     var myCantidad = $('#cantidad').val();
     var myDescripcion = $('#descripcion').val();
+    var myColor = $('#color').val();
+    var mySabor = $('#sabor').val();
     
 
-    if (!myNombreDulces || !myPrecio || !myCantidad || !myDescripcion) {
+    if (!myNombreDulces || !myPrecio || !myCantidad || !myDescripcion || !myColor || !mySabor) {
         alert('Por favor completa todos los campos');
         return;
     }
@@ -22,7 +24,9 @@ function postDulce() {
         nombreDulces: myNombreDulces,
         precio: myPrecio,
         cantidad: myCantidad,
-        descripcion: myDescripcion
+        descripcion: myDescripcion,
+        color: myColor,
+        sabor: mySabor
     };
     
     console.log(dulce);
@@ -51,7 +55,22 @@ function getDulces() {
 
         var arrDulces = json.dulces;
 
-        var htmlTableDulces = '<table border="1">';
+        var htmlTableDulces = `
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nombre</th>
+                    <th>Precio</th>
+                    <th>Cantidad</th>
+                    <th>Descripción</th>
+                    <th>Color</th>
+                    <th>Sabor</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>`;
+        
 
         arrDulces.forEach(function(item, index) {
             console.log(item);
@@ -62,10 +81,12 @@ function getDulces() {
                     <td>${item.precio}</td>
                     <td>${item.cantidad}</td>
                     <td>${item.descripcion}</td>
+                    <td>${item.color}</td>
+                    <td>${item.sabor}</td>
                 <td>
                 <button class="btn-eliminar" onclick="deleteDulce(${item.id})">Eliminar</button>
 
-                <button class="btn-editar" onclick="fillForm(${item.id}, '${item.nombreDulces}', '${item.precio}', ${item.cantidad}, '${item.descripcion}')">Editar</button>
+                <button class="btn-editar" onclick="fillForm(${item.id}, '${item.nombreDulces}', '${item.precio}', ${item.cantidad}, '${item.descripcion}', '${item.color}', '${item.sabor}')">Editar</button>
 
             </td>
         </tr>
@@ -103,13 +124,16 @@ function updateDulce() {
     const precio = $('#precio').val();
     const cantidad = $('#cantidad').val();
     const descripcion = $('#descripcion').val();
+    const color = $('#color').val();
+    const sabor = $('#sabor').val();
+    
 
-    if (!nombreDulces || !precio|| !cantidad|| !descripcion) {
+    if (!nombreDulces || !precio || !cantidad || !descripcion || !color || !sabor ) {
         alert("Completa todos los campos para actualizar");
         return;
     }
 
-    const updatedDulce = { nombreDulces, precio, cantidad, descripcion };
+    const updatedDulce = { nombreDulces, precio, cantidad, descripcion, color, sabor };
 
     $.ajax({
         url: `${url}/${selectedDulceId}`,
@@ -129,11 +153,13 @@ function updateDulce() {
     });
 }
 
-function fillForm(id, nombreDulces, precio, cantidad, descripcion) {
+function fillForm(id, nombreDulces, precio, cantidad, descripcion, color, sabor) {
     $('#nombreDulces').val(nombreDulces);
     $('#precio').val(precio);
     $('#cantidad').val(cantidad);
     $('#descripcion').val(descripcion);
+    $('#color').val(color);
+    $('#sabor').val(sabor);
     selectedDulceId = id;
 
     $('#updateBtn').show(); // muestra botón actualizar
@@ -147,6 +173,8 @@ function clearForm() {
     $('#precio').val('');
     $('#cantidad').val('');
     $('#descripcion').val('');
+    $('#color').val('');
+    $('#sabor').val('');
     selectedDulceId = null;
     $('#updateBtn').hide(); 
 }
